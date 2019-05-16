@@ -1,6 +1,6 @@
 # Laravel + Swagger demo application
 
-Thisapplication based on Docker containers, here is the list:
+This application based on Docker containers, here is the list:
 
 * mysql - Database server
 * phpmyadmin - For management of MySQL
@@ -29,6 +29,10 @@ I assume that there are no development tools on your computer, so you
 need to login to Laravel container:
 
     docker-compose exec laravel bash
+
+Install all dependencies
+
+    composer install
 
 Fix write permissions on a few important folders
 
