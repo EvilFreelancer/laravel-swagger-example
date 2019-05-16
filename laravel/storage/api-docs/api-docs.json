@@ -1,0 +1,115 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Laravel Swagger API documentation example",
+        "contact": {
+            "email": "admin@example.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost/api",
+            "description": "Laravel Swagger API server"
+        }
+    ],
+    "paths": {
+        "/examples": {
+            "get": {
+                "tags": [
+                    "Pages"
+                ],
+                "summary": "Display a listing of the resource",
+                "operationId": "examplesAll",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "The page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Everything is fine"
+                    },
+                    "404": {
+                        "description": "Example not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Pages"
+                ],
+                "summary": "Create yet another example record",
+                "operationId": "exampleCreate",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ExampleStoreRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Everything is fine"
+                    }
+                },
+                "security": [
+                    {
+                        "app_id": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ExampleStoreRequest": {
+                "title": "Example storring request",
+                "description": "Some simple request createa as example",
+                "properties": {
+                    "name": {
+                        "title": "Name",
+                        "description": "Some text field",
+                        "type": "string",
+                        "format": "string",
+                        "example": "test"
+                    },
+                    "value": {
+                        "title": "Value",
+                        "description": "Some integer",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": "123"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "X-APP-ID": {
+                "type": "apiKey",
+                "name": "X-APP-ID",
+                "in": "header"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Pages",
+            "description": "Some example pages"
+        }
+    ]
+}
