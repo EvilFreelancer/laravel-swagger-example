@@ -11,25 +11,23 @@ class ExampleStoreRequest
 {
     /**
      * @OA\Property(
-     *     title="Name",
+     *     title="User model",
      *     description="Some text field",
-     *     format="string",
-     *     example="test"
+     *     @OA\Schema(ref="#/components/schemas/UserModel")
      * )
      *
-     * @var string
+     * @var UserModel
      */
-    public $name;
+    public $user;
 
     /**
      * @OA\Property(
-     *     title="Value",
-     *     description="Some integer",
-     *     format="int64",
-     *     example="123"
+     *     title="Profile model",
+     *     description="Some text field",
+     *     @OA\Schema(ref="#/components/schemas/ProfileModel")
      * )
      *
-     * @var int
+     * @var ProfileModel
      */
-    public $value;
+    public $profile;
 }

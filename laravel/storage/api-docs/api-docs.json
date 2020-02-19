@@ -80,19 +80,121 @@
                 "title": "Example storring request",
                 "description": "Some simple request createa as example",
                 "properties": {
-                    "name": {
-                        "title": "Name",
+                    "user": {
+                        "title": "User model",
                         "description": "Some text field",
+                        "$ref": "#/components/schemas/UserModel"
+                    },
+                    "profile": {
+                        "title": "Profile model",
+                        "description": "Some text field",
+                        "$ref": "#/components/schemas/ProfileModel"
+                    }
+                },
+                "type": "object"
+            },
+            "ProfileModel": {
+                "title": "Example user's profile",
+                "description": "Some simple request createa as example",
+                "properties": {
+                    "birthday": {
+                        "title": "Birthday",
+                        "description": "The day",
+                        "type": "string",
+                        "format": "date",
+                        "example": "1985-05-11"
+                    },
+                    "inn": {
+                        "title": "INN of user",
+                        "description": "INN",
+                        "type": "string",
+                        "format": "number",
+                        "example": "1234567890"
+                    },
+                    "document_type": {
+                        "title": "Document type",
+                        "description": "Type of provided document",
                         "type": "string",
                         "format": "string",
-                        "example": "test"
+                        "example": "Паспорт РФ"
                     },
-                    "value": {
-                        "title": "Value",
-                        "description": "Some integer",
+                    "document_serial": {
+                        "title": "Document serial",
+                        "description": "Serial number of provided document",
                         "type": "integer",
-                        "format": "int64",
-                        "example": "123"
+                        "format": "number",
+                        "example": "1111"
+                    },
+                    "document_number": {
+                        "title": "Document number",
+                        "description": "Number of provided document",
+                        "type": "integer",
+                        "format": "number",
+                        "example": "222222"
+                    },
+                    "document_date": {
+                        "title": "Document date",
+                        "description": "Date of registration of provided document",
+                        "type": "integer",
+                        "format": "date",
+                        "example": "2015-11-12"
+                    },
+                    "document_department_code": {
+                        "title": "Document department code",
+                        "description": "Department code of provided document",
+                        "type": "string",
+                        "format": "string",
+                        "pattern": "^\\d{2,5}-\\d{2,5}",
+                        "example": "111-222"
+                    },
+                    "document_department_name": {
+                        "title": "Document department name",
+                        "description": "Department name of provided document",
+                        "type": "string",
+                        "format": "string",
+                        "example": "УВД г. Москвы"
+                    },
+                    "registry_address": {
+                        "title": "Registry address",
+                        "description": "Registry address of provided document",
+                        "type": "string",
+                        "format": "string",
+                        "example": "г. Москва, ул. Рябиновая, д. 15, кв. 11"
+                    }
+                },
+                "type": "object"
+            },
+            "UserModel": {
+                "title": "Example user's model",
+                "description": "Some simple request createa as example",
+                "properties": {
+                    "first_name": {
+                        "title": "First Name",
+                        "description": "The first name",
+                        "type": "string",
+                        "format": "string",
+                        "example": "Сергей"
+                    },
+                    "last_name": {
+                        "title": "Last Name",
+                        "description": "The last name",
+                        "type": "string",
+                        "format": "string",
+                        "example": "Сергеев"
+                    },
+                    "email": {
+                        "title": "Email",
+                        "description": "Email of user",
+                        "type": "string",
+                        "format": "email",
+                        "example": "sergeev2@example.com"
+                    },
+                    "phone": {
+                        "title": "Phone",
+                        "description": "Phone of user",
+                        "type": "string",
+                        "format": "string",
+                        "example": "+7 (909) 123-45-88"
                     }
                 },
                 "type": "object"
