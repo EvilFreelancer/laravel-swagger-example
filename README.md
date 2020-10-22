@@ -2,7 +2,7 @@
 
 This application based on Docker containers, here is the list:
 
-* mysql - Database server
+* mariadb - Database server
 * phpmyadmin - For management of MySQL
 * laravel - Login pages, API and VueJS
 
