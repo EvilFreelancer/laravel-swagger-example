@@ -81,13 +81,9 @@
                 "description": "Some simple request createa as example",
                 "properties": {
                     "user": {
-                        "title": "User model",
-                        "description": "Some text field",
                         "$ref": "#/components/schemas/UserModel"
                     },
                     "profile": {
-                        "title": "Profile model",
-                        "description": "Some text field",
                         "$ref": "#/components/schemas/ProfileModel"
                     }
                 },
@@ -213,5 +209,8 @@
             "name": "Pages",
             "description": "Some example pages"
         }
+    ],
+    "security": [
+        []
     ]
 }

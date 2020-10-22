@@ -3,3 +3,4 @@
 /logs/
 /laravel/public/js/
 /laravel/public/css/
+/docker-compose.yml

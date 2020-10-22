@@ -14,10 +14,11 @@ Clone the repo and change your work directory to root of sources
 
     git clone https://github.com/EvilFreelancer/laravel-swagger-example.git
     cd laravel-swagger-example
+    cp docker-compose.dist,yml docker-compose.yml
 
 Inside `docker-compose.yml` you need change the values to the ones you
-need, for example you do not want to tun this project on `80` port, to
-fix that you need just change this line `80:80` to what you need (`7777:80`).
+need, for example you do not want to tun this project on `8080` port, to
+fix that you need just change this line `80:8080` to what you need (`7777:8080`).
 
 Run first iteration of Docker environment
 

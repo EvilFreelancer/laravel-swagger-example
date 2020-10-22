@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Example;
+use App\Models\Example;
 use App\Http\Requests\ExampleStoreRequest;
 use Illuminate\Http\Request;
 
