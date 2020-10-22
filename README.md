@@ -1,10 +1,12 @@
-# Laravel + Swagger demo application
+# Laravel 8 + Swagger demo application
 
 This application based on Docker containers, here is the list:
 
 * mysql - Database server
 * phpmyadmin - For management of MySQL
 * laravel - Login pages, API and VueJS
+
+![Image](demo.jpg)
 
 ## How to use
 
@@ -35,38 +37,21 @@ Install all dependencies
 
     composer install
 
-Fix write permissions on a few important folders
-
-    chown apache:apache bootstrap/ -R
-    chown apache:apache storage/ -R
-
-End exit from container
-
-    exit
-
 ### 3. Set up the application
 
-Login into container
+Create database and seed tables:
 
-    docker-compose exec laravel bash
-
-Create database and seed tables
-
-    php artisan migrate
-    php artisan db:seed
+    php artisan migrate:fresh --seed
 
 ### 4. Generate swagger frontend
 
-Login into container
 
-    docker-compose exec laravel bash
-
-Generate interactive documentation
+Generate interactive documentation:
 
     php artisan l5-swagger:generate
 
 ## The End
 
-Now you just need open following page http://localhost in your browser.
+Now you just need open following page [http://localhost/api/documentation](http://localhost/api/documentation) in your browser.
 
 Thanks for reading!

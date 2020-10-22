@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\ExamplesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,4 +19,4 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 
-Route::resource('examples', 'API\ExamplesController');
+Route::apiResource('examples', ExamplesController::class);

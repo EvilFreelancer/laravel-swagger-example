@@ -15,4 +15,8 @@ class Example extends Model
         'name',
         'value'
     ];
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+    ];
 }

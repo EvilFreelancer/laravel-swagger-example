@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Example;
 use Illuminate\Database\Seeder;
 
 class ExamplesTableSeeder extends Seeder
@@ -13,7 +14,7 @@ class ExamplesTableSeeder extends Seeder
      */
     public function run()
     {
-        $item = new \App\Example();
+        $item = new Example();
         $item->name = 'test';
         $item->value = 300;
         $item->save();

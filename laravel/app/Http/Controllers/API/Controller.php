@@ -15,7 +15,7 @@ namespace App\Http\Controllers\API;
  *     )
  * )
  * @OA\Tag(
- *     name="Pages",
+ *     name="Examples",
  *     description="Some example pages",
  * )
  * @OA\Server(

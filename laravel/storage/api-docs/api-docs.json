@@ -21,7 +21,7 @@
         "/examples": {
             "get": {
                 "tags": [
-                    "Pages"
+                    "Examples"
                 ],
                 "summary": "Display a listing of the resource",
                 "operationId": "examplesAll",
@@ -38,16 +38,28 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Everything is fine"
-                    },
-                    "404": {
-                        "description": "Example not found"
+                        "description": "Everything is fine",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ExampleShowRequest"
+                                    }
+                                }
+                            }
+                        }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
-                    "Pages"
+                    "Examples"
                 ],
                 "summary": "Create yet another example record",
                 "operationId": "exampleCreate",
@@ -63,12 +75,132 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Everything is fine"
+                        "description": "Everything is fine",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ExampleShowRequest"
+                                }
+                            }
+                        }
                     }
                 },
                 "security": [
                     {
-                        "app_id": []
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/examples/{id}": {
+            "get": {
+                "tags": [
+                    "Examples"
+                ],
+                "summary": "Get example by ID",
+                "operationId": "examplesGet",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of example",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Everything is fine",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ExampleShowRequest"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Examples"
+                ],
+                "summary": "Update example by ID",
+                "operationId": "examplesUpdate",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of example",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ExampleStoreRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Everything is fine",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ExampleShowRequest"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Examples"
+                ],
+                "summary": "Delete example by ID",
+                "operationId": "examplesDelete",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of example",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Deleted"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
                     }
                 ]
             }
@@ -76,15 +208,46 @@
     },
     "components": {
         "schemas": {
+            "ExampleShowRequest": {
+                "title": "Example showing request",
+                "description": "Some simple request createa as example",
+                "properties": {
+                    "id": {
+                        "title": "ID",
+                        "description": "Unique ID",
+                        "type": "string",
+                        "example": "1"
+                    },
+                    "name": {
+                        "title": "Name",
+                        "description": "Name of key for storring",
+                        "type": "string",
+                        "example": "random"
+                    },
+                    "value": {
+                        "title": "Value",
+                        "description": "Value for storring",
+                        "type": "string",
+                        "example": "awesome"
+                    }
+                },
+                "type": "object"
+            },
             "ExampleStoreRequest": {
                 "title": "Example storring request",
                 "description": "Some simple request createa as example",
                 "properties": {
-                    "user": {
-                        "$ref": "#/components/schemas/UserModel"
+                    "name": {
+                        "title": "Name",
+                        "description": "Name of key for storring",
+                        "type": "string",
+                        "example": "random"
                     },
-                    "profile": {
-                        "$ref": "#/components/schemas/ProfileModel"
+                    "value": {
+                        "title": "Value",
+                        "description": "Value for storring",
+                        "type": "string",
+                        "example": "awesome"
                     }
                 },
                 "type": "object"
@@ -160,6 +323,19 @@
                 },
                 "type": "object"
             },
+            "StoreRequest": {
+                "title": "Example complex model",
+                "description": "Example complex object",
+                "properties": {
+                    "user": {
+                        "$ref": "#/components/schemas/UserModel"
+                    },
+                    "profile": {
+                        "$ref": "#/components/schemas/ProfileModel"
+                    }
+                },
+                "type": "object"
+            },
             "UserModel": {
                 "title": "Example user's model",
                 "description": "Some simple request createa as example",
@@ -206,7 +382,7 @@
     },
     "tags": [
         {
-            "name": "Pages",
+            "name": "Examples",
             "description": "Some example pages"
         }
     ],

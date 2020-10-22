@@ -3,12 +3,23 @@
 /**
  * @OA\Schema(
  *     type="object",
- *     title="Example storring request",
+ *     title="Example showing request",
  *     description="Some simple request createa as example",
  * )
  */
-class ExampleStoreRequest
+class ExampleShowRequest
 {
+    /**
+     * @OA\Property(
+     *     title="ID",
+     *     description="Unique ID",
+     *     example="1",
+     * )
+     *
+     * @var string
+     */
+    public $id;
+
     /**
      * @OA\Property(
      *     title="Name",

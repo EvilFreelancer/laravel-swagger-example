@@ -18,7 +18,7 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
-      - 127.0.0.1:8080:8080
+      - 127.0.0.1:8080:80
     links:
       - mariadb
     environment:
@@ -33,7 +33,7 @@ services:
     links:
       - mariadb
     ports:
-      - 80:80
+      - 80:8080
     volumes:
+      - ./httpd.conf:/etc/apache2/httpd.conf
       - ./laravel:/app:rw
-      - ./logs/laravel:/var/log/apache2:rw
