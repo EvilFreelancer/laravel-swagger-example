@@ -16,7 +16,7 @@ class ExampleShowRequest
      *     example="1",
      * )
      *
-     * @var string
+     * @var int
      */
     public $id;
 

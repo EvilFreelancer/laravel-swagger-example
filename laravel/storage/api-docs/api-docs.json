@@ -215,7 +215,7 @@
                     "id": {
                         "title": "ID",
                         "description": "Unique ID",
-                        "type": "string",
+                        "type": "integer",
                         "example": "1"
                     },
                     "name": {
